@@ -1,14 +1,16 @@
-pipeline {
-    agent any
+trigger:
+- main
 
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-                echo 'im Sunidhi'
-                echo 'blahhh'
-                echo 'zzzzzzzzzz'
-            }
-        }
-    }
-}
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Hello
+  jobs:
+  - job: SayHello
+    steps:
+    - script: echo 'Hello World'
+    - script: echo 'im Sunidhi'
+    - script: echo 'blahhh'
+    - script: echo 'zzzzzzzzzz'
+
